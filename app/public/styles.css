@@ -1,11 +1,24 @@
 
-body{
+body {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(rgba(255, 255, 255, 0.8) 20%, rgba(70, 173, 182) 100%, rgba(0, 0, 0, 1) 130%)
+    background: radial-gradient(rgba(255, 255, 255, 0.8) 20%, rgba(70, 173, 182) 100%, rgba(0, 0, 0, 1) 130%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
+
+img {
+    height:54vw;
+    width:54vw;
+    position:absolute;
+    transform: translate(-50%, -45%);
+    top:50%;
+    left:50%;
+}
+
 
 .maintenance {
     top:50%;
