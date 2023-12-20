@@ -1,9 +1,10 @@
+
 body{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background:radial-gradient(circle, rgba(139, 0, 0) 25%, rgba(0, 0, 0, 1) 100%)
+    background: radial-gradient(rgba(255, 255, 255, 0.8) 20%, rgba(70, 173, 182) 100%, rgba(0, 0, 0, 1) 130%)
 }
 
 .maintenance {
@@ -12,7 +13,7 @@ body{
     position:absolute;
     color:black;
     text-align: center;
-    transform: translate(-50%, -45%);
+    transform: translate(-52%, -50%);
     font-size:10vw;
     font-family: WarriorFont, sans-serif;
     animation: gradient 2s infinite alternate;
@@ -27,13 +28,13 @@ body{
 @keyframes gradient{
     
     100%{
-        text-shadow: black 0 0 0.25rem,
-    black 0 0 0.5rem,
-    rgb(255, 0, 0) 0 0 1.25rem,
-    rgb(255, 0, 0) 0 0 2rem,
-    rgb(255, 0, 0) 0 0 2.75rem,
-    rgb(255, 0, 0) 0 0 3.25rem,
-    rgb(255, 0, 0) 0 0 3.75rem;
+        text-shadow: white 0 0 0.25rem,
+    white 0 0 0.5rem,
+    white 0 0 1.25rem,
+    rgba(70, 173, 182) 0 0 2rem,
+    rgba(70, 173, 182) 0 0 2.75rem,
+    rgba(70, 173, 182) 0 0 3.25rem,
+    rgba(70, 173, 182) 0 0 3.75rem;
     }
  }
 
