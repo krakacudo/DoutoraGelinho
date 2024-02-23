@@ -5,11 +5,19 @@
   "main": "./server/index.js",
   "scripts": {
     "webpack": "webpack --mode=production",
-    "start": "webpack && nodemon index.js"
+    "start": "webpack && nodemon index.js",
+    "dev": "nodemon index.js",
+    "build": "ng build client"
   },
   "author": "kraka",
   "license": "ISC",
   "dependencies": {
+    "@angular-devkit/build-angular": "^17.2.0",
+    "@angular/cli": "^17.2.0",
+    "@angular/core": "^17.2.2",
+    "@angular/platform-browser": "^17.2.2",
+    "@angular/platform-browser-dynamic": "^17.2.2",
+    "@angular/router": "^17.2.2",
     "express": "^4.18.2"
   },
   "devDependencies": {
