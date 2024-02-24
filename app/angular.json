@@ -16,7 +16,7 @@
               "index": "index.html",
               "main": "main.ts",
               "assets": [
-                "app/assets"
+                "app/favicon.ico"
               ],
               "styles": [
                 "./assets/styles.css"
