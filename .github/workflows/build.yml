@@ -18,7 +18,7 @@ jobs:
         username: ${{ secrets.EC2_USERNAME }}
         key: ${{ secrets.EC2_PRIVATE_KEY }}
         script: |
-          cd /Europe-Saviors/app/server/
+          cd ~/Europe-Saviors/app/server/
           git pull origin main
           npm ci
           npm run build
