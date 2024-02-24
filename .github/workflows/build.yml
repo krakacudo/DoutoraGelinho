@@ -9,8 +9,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
-    - name: Setup Node.js
+    steps:
+     - name: Setup Node.js
       uses: actions/setup-node@v2
       with:
         node-version: '20.11.0' 
@@ -18,7 +18,6 @@ jobs:
     - name: Install PM2
       run: npm install -g pm2
 
-    steps:
     - name: SSH into EC2 instance
       uses: appleboy/ssh-action@master
       with:
