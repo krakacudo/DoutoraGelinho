@@ -7,7 +7,7 @@
     "webpack": "webpack --mode=production",
     "start": "webpack && nodemon index.js",
     "dev": "nodemon index.js",
-    "build": "ng build client"
+    "build": "ng build --configuration production --project client "
   },
   "author": "kraka",
   "license": "ISC",
