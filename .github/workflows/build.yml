@@ -11,38 +11,37 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Extract Runner IP Address
+      - name: Extract Runner IP Address
         id: ip
         uses: haythem/public-ip@v1.2
 
-    - name: Whitelist Runner IP Address
-      run: |
-        aws ec2 authorize-security-group-ingress \
-          --group-id ${{ secrets.AWS_INSTANCE_SG_ID }} \
-          --protocol tcp \
-          --port 22 \
-          --cidr ${{ steps.ip.outputs.ipv4 }}/32
+      - name: Whitelist Runner IP Address
+        run: |
+          aws ec2 authorize-security-group-ingress \
+            --group-id ${{ secrets.AWS_INSTANCE_SG_ID }} \
+            --protocol tcp \
+            --port 22 \
+            --cidr ${{ steps.ip.outputs.ipv4 }}/32
 
-    - name: SSH into EC2 instance
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ${{ secrets.EC2_USERNAME }}
-        key: ${{ secrets.EC2_PRIVATE_KEY }}
-        script: |
-          export NVM_DIR=~/.nvm
-          source ~/.nvm/nvm.sh
-          cd ~/Europe-Saviors/app/server/
-          git pull origin main
-          npm ci
-          npm run build
-          pm2 restart myApp
+      - name: SSH into EC2 instance
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_PRIVATE_KEY }}
+          script: |
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
+            cd ~/Europe-Saviors/app/server/
+            git pull origin main
+            npm ci
+            npm run build
+            pm2 restart myApp
 
-    - name: revoke runner ip address
-      run: |
-        aws ec2 revoke-security-group-ingress \
-          --group-id ${{ secrets.AWS_INSTANCE_SG_ID }} \
-          --protocol tcp \
-          --port 22 \
-          --cidr ${{ steps.ip.outputs.ipv4 }}/32
-          
+      - name: Revoke Runner IP Address
+        run: |
+          aws ec2 revoke-security-group-ingress \
+            --group-id ${{ secrets.AWS_INSTANCE_SG_ID }} \
+            --protocol tcp \
+            --port 22 \
+            --cidr ${{ steps.ip.outputs.ipv4 }}/32
