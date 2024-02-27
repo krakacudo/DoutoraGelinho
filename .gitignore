@@ -1,2 +1,13 @@
+#FRONTEND
 node_modules
 .angular
+
+#BACKEND
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+#IDE
+.vscode/
