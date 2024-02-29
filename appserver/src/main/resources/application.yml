@@ -1,0 +1,7 @@
+server:
+    port: 8081
+
+spring:
+    data:
+        mongodb:
+            uri: bW9uZ29kYitzcnY6Ly9FU0NVc2VyOk9CTW1KNUl1T2dHWFBTVkdAY2x1c3RlcjAuYzZ4eGVoYS5tb25nb2RiLm5ldC9lc2M=
