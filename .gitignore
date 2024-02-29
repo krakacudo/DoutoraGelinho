@@ -2,7 +2,8 @@
 node_modules
 .angular
 
-#BACKEND
+#BACKEN
+bin
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
