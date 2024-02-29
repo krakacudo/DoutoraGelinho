@@ -1,4 +1,4 @@
-package club.ESC.repositories.mongodb.constants;
+package club.ESC.repos.mongodb.constants;
 
 public class MongoConstants {
     public static final String DATABASE_URI_PROPERTY = "spring.data.mongodb.uri";

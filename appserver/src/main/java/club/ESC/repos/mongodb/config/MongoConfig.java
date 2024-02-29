@@ -1,4 +1,4 @@
-package club.ESC.repositories.mongodb.config;
+package club.ESC.repos.mongodb.config;
 
 import java.util.Base64;
 
@@ -10,12 +10,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.data.mongodb.MongoDatabaseFactory;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.SimpleMongoClientDatabaseFactory;
 import org.springframework.lang.NonNull;
 
 import com.mongodb.ConnectionString;
 
-import club.ESC.repositories.mongodb.constants.MongoConstants;
+import club.ESC.repos.mongodb.constants.MongoConstants;
 
 import org.springframework.util.StringUtils;
 
@@ -54,5 +55,10 @@ public class MongoConfig{
         
         return new ConnectionString(decodedConnectionUri);
 
+    }
+
+    @Bean
+    public MongoTemplate mongoTemplate(@NonNull MongoDatabaseFactory mongoDatabaseFactory){
+        return new MongoTemplate(mongoDatabaseFactory);
     }
 }
