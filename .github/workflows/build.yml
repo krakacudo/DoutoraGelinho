@@ -40,7 +40,6 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           script: |
-            export MONGO_CREDENTIALS=$MONGO_CREDENTIALS
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
             if curl -s -o /dev/null -w "%{http_code}" http://localhost:8081/actuator/health | grep -q 200; then
@@ -49,12 +48,14 @@ jobs:
             cd ~/Europe-Saviors
             git pull origin main
             cd ~/Europe-Saviors/appserver/
-            ./gradlew build bootRun
+            chmod +x gradlew
+            ./gradlew build 
+            pm2 start server.config.js
             cd ~/Europe-Saviors/app/server/
             npm ci
             npm run build
             pm2 restart myApp
-
+##export MONGO_CREDENTIALS=$MONGO_CREDENTIALS
       - name: Revoke Runner IP Address
         run: |
           aws ec2 revoke-security-group-ingress \

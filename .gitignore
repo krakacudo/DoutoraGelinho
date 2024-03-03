@@ -1,6 +1,7 @@
 #FRONTEND
 node_modules
 .angular
+app/public/*
 
 #BACKEN
 bin

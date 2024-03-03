@@ -8,7 +8,7 @@
     "start": "webpack && nodemon index.js",
     "test": "ng build --configuration production --project client && nodemon index.js",
     "dev": "nodemon index.js",
-    "build": "ng build --configuration production --project client"
+    "build": "ng build --configuration production --project client "
   },
   "author": "kraka",
   "license": "ISC",
