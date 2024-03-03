@@ -1,7 +1,6 @@
-import { ClientComponent } from './client/client.component';
-import { appConfig } from './client/client.config';
-import { bootstrapApplication } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import 'zone.js';
+import { ClientModule } from './client/client.module';
 
-bootstrapApplication(ClientComponent, appConfig)
-  .catch(err => console.error(err));
+platformBrowserDynamic().bootstrapModule(ClientModule)
+  .catch(err => console.error(err))

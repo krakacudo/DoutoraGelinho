@@ -10,6 +10,9 @@ jobs:
   Conductor:
     runs-on: ubuntu-latest
 
+    env: 
+      MONGO_CREDENTIALS: ${{ secrets.MONGO_CREDENTIALS }}
+
     steps:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -37,8 +40,14 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           script: |
+            export MONGO_CREDENTIALS=$MONGO_CREDENTIALS
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
+            if curl -s -o /dev/null -w "%{http_code}" http://localhost:8081/actuator/health | grep -q 200; then
+              curl -X POST http://localhost:8081/actuator/shutdown
+            fi
+            cd ~/Europe-Saviors/app/appserver/
+            ./gradlew build bootRun
             cd ~/Europe-Saviors/app/server/
             git pull origin main
             npm ci

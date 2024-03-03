@@ -1,13 +1,18 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Player } from './players/player';
+import { PlayerService } from './players/player.service';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './client.component.html'
 })
 export class ClientComponent {
-  title = 'app';
+  players: Player[] = [];
+
+  constructor(private playerService: PlayerService){}
+
+  ngOnInit(){
+    this.playerService.getPlayers().subscribe(players => this.players = players);
+  }
 }
 

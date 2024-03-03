@@ -1,2 +1,6 @@
 <img src = "./logo.png" alt = "Europe Saviors Club Logo">
 <div class = "maintenance"><i>COMING SOON</i></div>
+<div *ngFor="let player of players">
+    <app-player [player] = player></app-player>
+</div>
+

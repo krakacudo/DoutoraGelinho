@@ -1,7 +1,16 @@
 server:
     port: 8081
 
+management:
+    endpoint:
+        shutdown:
+            enabled: true
+    endpoints:
+        web:
+            exposure:
+                include: shutdown
+
 spring:
     data:
         mongodb:
-            uri: bW9uZ29kYitzcnY6Ly9FU0NVc2VyOk9CTW1KNUl1T2dHWFBTVkdAY2x1c3RlcjAuYzZ4eGVoYS5tb25nb2RiLm5ldC9lc2M=
+            uri: ${MONGO_CREDENTIALS}
