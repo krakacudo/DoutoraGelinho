@@ -18,7 +18,7 @@ public class TestController {
         this.mongoRepository = mongoRepository;
     }
 
-    @GetMapping("/")
+    @GetMapping("/api")
     public ResponseEntity<List<Player>> amazing() {
         List<Player> players = mongoRepository.getPlayers();
         return ResponseEntity.ok(players);

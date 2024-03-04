@@ -10,7 +10,7 @@ export class PlayerService{
     constructor(private http: HttpClient){}
 
     getPlayers() : Observable<Player[]> {
-        return this.http.get<Player[]>('http://localhost:8081/');
+        return this.http.get<Player[]>('https://www.europesaviorsclub.com/api');
     }
 
 }
