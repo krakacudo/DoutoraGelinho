@@ -56,7 +56,7 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           script: |
-            scp -i /root/.ssh/id_rsa -r ./app/public/* ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}:~/Europe-Saviors/app/public/
+            sudo scp -i /root/.ssh/id_rsa -r ./app/public/* ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}:~/Europe-Saviors/app/public/
           #export NVM_DIR=~/.nvm
           #source ~/.nvm/nvm.sh
           #cd ~/Europe-Saviors
