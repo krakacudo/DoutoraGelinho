@@ -17,6 +17,14 @@ public class Player {
     @Field
     private int lp;
 
+    public Player(String name, int age, String rank, String division, int lp){
+        this.name=name;
+        this.age=age;
+        this.rank=rank;
+        this.division=division;
+        this.lp=lp;
+    }
+
     public String getName(){
         return name;
     }
