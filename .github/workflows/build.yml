@@ -39,6 +39,10 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v3
     
+      - name: Elevate Gradle Permissions
+        run: sudo chmod +x gradlew
+        working-directory: ./appserver
+
       - name: Build Backend
         run: ./gradlew build
         working-directory: ./appserver
