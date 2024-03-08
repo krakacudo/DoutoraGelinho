@@ -24,9 +24,11 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+        working-directory: ./app
 
-      - name: Build Application
+      - name: Build Frontend
         run: npm run build
+        working-directory: ./app
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
