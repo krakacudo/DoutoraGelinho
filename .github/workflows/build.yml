@@ -30,6 +30,21 @@ jobs:
         run: npm run build
         working-directory: ./app
 
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '21'
+
+      - name: Set up Gradle
+        uses: gradle/wrapper-action@v2
+        with:
+          gradle-version: '8.6'
+          wrapper-version: '8.6'
+
+      - name: Build Backend
+        run: ./gradlew build
+        working-directory: ./appserver
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -55,7 +70,7 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_PRIVATE_KEY }}
-          source: "app/public/*"
+          source: "app/public/*, appserver/build/*"
           target: "~/Europe-Saviors/"
           #script: |
           #export NVM_DIR=~/.nvm
