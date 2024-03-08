@@ -56,7 +56,7 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           source: "app/public/*"
-          target: "~/Europe-Saviors/app/public/"
+          target: "~/Europe-Saviors/"
           #script: |
           #export NVM_DIR=~/.nvm
           #source ~/.nvm/nvm.sh
