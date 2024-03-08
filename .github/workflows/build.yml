@@ -35,12 +35,9 @@ jobs:
         with:
           java-version: '21'
 
-      - name: Set up Gradle
-        uses: gradle/wrapper-action@v2
-        with:
-          gradle-version: '8.6'
-          wrapper-version: '8.6'
-
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v3
+    
       - name: Build Backend
         run: ./gradlew build
         working-directory: ./appserver
