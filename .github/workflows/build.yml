@@ -14,6 +14,20 @@ jobs:
       MONGO_CREDENTIALS: ${{ secrets.MONGO_CREDENTIALS }}
 
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20.11.0'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Application
+        run: npm run build
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -40,22 +54,12 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           script: |
-            export NVM_DIR=~/.nvm
-            source ~/.nvm/nvm.sh
-            if curl -s -o /dev/null -w "%{http_code}" http://localhost:8081/actuator/health | grep -q 200; then
-              curl -X POST http://localhost:8081/actuator/shutdown
-            fi
-            cd ~/Europe-Saviors
-            git pull origin main
-            cd ~/Europe-Saviors/appserver/
-            chmod +x gradlew
-            ./gradlew build 
-            pm2 start server.config.js
-            cd ~/Europe-Saviors/app/server/
-            npm ci
-            npm run build
-            pm2 restart myApp
-##export MONGO_CREDENTIALS=$MONGO_CREDENTIALS
+            scp -r ./app/public/* ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}:~/Europe-Saviors/app/public/
+          #export NVM_DIR=~/.nvm
+          #source ~/.nvm/nvm.sh
+          #cd ~/Europe-Saviors
+          #git pull origin main 
+          #export MONGO_CREDENTIALS=$MONGO_CREDENTIALS
       - name: Revoke Runner IP Address
         run: |
           aws ec2 revoke-security-group-ingress \
