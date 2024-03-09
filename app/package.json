@@ -4,10 +4,7 @@
   "description": "",
   "main": "./server/index.js",
   "scripts": {
-    "webpack": "webpack --mode=production",
-    "start": "webpack && nodemon index.js",
-    "test": "ng build --configuration production --project client && nodemon index.js",
-    "dev": "nodemon index.js",
+    "dev": "ng build --configuration development --project client && nodemon index.js",
     "build": "ng build --configuration production --project client "
   },
   "author": "kraka",

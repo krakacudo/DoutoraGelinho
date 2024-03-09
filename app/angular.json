@@ -32,7 +32,13 @@
                 "aot": true,
                 "extractLicenses": true,
                 "vendorChunk": false,
-                "buildOptimizer": true
+                "buildOptimizer": true,
+                "fileReplacements": [
+                  {
+                    "replace": "environments/environment.ts",
+                    "with": "environments/environment.prod.ts"
+                  }
+                ]
               },
               "development": {
                 "buildOptimizer": false,
