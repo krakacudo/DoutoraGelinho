@@ -43,6 +43,10 @@ jobs:
         run: sudo chmod +x gradlew
         working-directory: ./appserver
 
+      - name: Clean Backend
+        run: ./gradlew clean
+        working-directory: ./appserver
+
       - name: Build Backend
         run: ./gradlew build
         working-directory: ./appserver
