@@ -12,7 +12,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public void addCorsMappings(@NonNull CorsRegistry registry) {
         //TODO: change registry based on env.
         registry.addMapping("/**")
-                .allowedOrigins("*")
+                .allowedOrigins("https://www.europesaviorsclub.com/")
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowedHeaders("*");
     }
