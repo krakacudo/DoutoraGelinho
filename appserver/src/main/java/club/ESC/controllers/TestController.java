@@ -22,6 +22,8 @@ public class TestController {
     public ResponseEntity<List<Player>> amazing() {
         List<Player> players = mongoRepository.getPlayers();
         players.add(new Player("id",12,"hello","division",11));
+        players.add(new Player("id2",12,"hello","division",11));
+        
         return ResponseEntity.ok(players);
     }
     
