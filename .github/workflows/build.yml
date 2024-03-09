@@ -17,9 +17,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Set environment variable
-        run: echo "SPRING_PROFILES_ACTIVE=prod" >> $GITHUB_ENV
-
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
