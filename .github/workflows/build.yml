@@ -16,10 +16,7 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-
-      - name: Set environment variable
-        run: echo "SPRING_PROFILES_ACTIVE=prod" >> $GITHUB_ENV
-
+        
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
@@ -46,13 +43,11 @@ jobs:
         run: sudo chmod +x gradlew
         working-directory: ./appserver
 
-      - name: Clean Backend
-        run: ./gradlew clean
-        working-directory: ./appserver
-
       - name: Build Backend
         run: ./gradlew build
         working-directory: ./appserver
+        env:
+          SPRING_PROFILES_ACTIVE: ${{ secrets.ENV }}
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
