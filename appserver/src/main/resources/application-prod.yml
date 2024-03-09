@@ -1,2 +1,2 @@
 cors:
-    origins: "https://www.europesaviorsclub.com/"
+    allowedOrigins: "https://www.europesaviorsclub.com/"
