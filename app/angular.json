@@ -16,7 +16,8 @@
               "index": "index.html",
               "main": "main.ts",
               "assets": [
-                "app/favicon.ico"
+                "app/favicon.ico",
+                "app/assets/alex.otf"
               ],
               "styles": [
                 "@angular/material/prebuilt-themes/deeppurple-amber.css",
