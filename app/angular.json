@@ -19,6 +19,7 @@
                 "app/favicon.ico"
               ],
               "styles": [
+                "@angular/material/prebuilt-themes/deeppurple-amber.css",
                 "./assets/styles.css"
               ],
               "scripts": []

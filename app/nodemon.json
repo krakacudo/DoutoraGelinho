@@ -1,0 +1,7 @@
+{
+    "watch": ["public"],
+    "ext": "*",
+    "exec": "node server/index.js",
+    "delay": "1000",
+    "legacy-watch": true
+}

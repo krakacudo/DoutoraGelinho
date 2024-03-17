@@ -27,7 +27,7 @@ jobs:
         working-directory: ./app
 
       - name: Build Frontend
-        run: npm run build
+        run: npm run prod
         working-directory: ./app
 
       - name: Set up JDK

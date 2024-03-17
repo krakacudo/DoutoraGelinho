@@ -4,15 +4,22 @@
   "description": "",
   "main": "./server/index.js",
   "scripts": {
-    "dev": "ng build --configuration development --project client && nodemon index.js",
-    "build": "ng build --configuration production --project client "
+    "dev": "npm run serve && npm start",
+    "build": "ng build --configuration development --project client",
+    "serve": "start nodemon --watch client --watch assets --ext ts,html --exec \"npm run build\"",
+    "start": "start nodemon index.js",
+    "prod": "ng build --configuration production --project client "
   },
   "author": "kraka",
   "license": "ISC",
   "dependencies": {
     "@angular-devkit/build-angular": "^17.2.0",
+    "@angular/animations": "^17.2.2",
+    "@angular/cdk": "^17.2.2",
     "@angular/cli": "^17.2.0",
     "@angular/core": "^17.2.2",
+    "@angular/forms": "^17.2.2",
+    "@angular/material": "^17.2.2",
     "@angular/platform-browser": "^17.2.2",
     "@angular/platform-browser-dynamic": "^17.2.2",
     "@angular/router": "^17.2.2",
