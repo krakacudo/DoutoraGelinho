@@ -22,11 +22,17 @@ app-root{
     display:flex;
     align-items:center;
     justify-content:center;
-    margin-top:14%;
+    margin-top: 10%;
     color:rgb(245, 30, 15);
     width: 100%;
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.title > h1{
+    font-size:144px;
+    font-family: 'MyFont';
+    font-weight: bold;
 }
 
 @media screen and (max-width: 850px) {
@@ -34,12 +40,10 @@ app-root{
         flex-direction: column;
         gap:50px;
     }
-}
 
-.title > h1{
-    font-size:144px;
-    font-family: 'MyFont';
-    font-weight: bold;
+    .title > h1{
+        font-size:100px;
+    }
 }
 
 body{
