@@ -8,11 +8,11 @@ import { HttpClientModule } from "@angular/common/http"
 import { PlayerService } from "./players/player.service";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
-import { MatDividerModule } from '@angular/material/divider';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
-    imports: [BrowserModule, AppRoutingModule, CommonModule, HttpClientModule, MatButtonModule, MatIconModule, MatDividerModule],
+    imports: [BrowserModule, AppRoutingModule, CommonModule, HttpClientModule, MatButtonModule, MatIconModule, MatMenuModule],
     providers: [PlayerService, provideAnimationsAsync()],
     declarations: [ClientComponent, PlayerComponent],
     bootstrap: [ClientComponent]

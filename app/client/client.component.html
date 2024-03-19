@@ -1,9 +1,23 @@
-<div class="menu">
-  <button mat-icon-button>
+<div class="menu_btn">
+  <button mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon>menu</mat-icon>
   </button>
-  
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item class="unsafe">
+      <mat-icon>info</mat-icon>
+      <span>Acerca</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>photo_camera</mat-icon>
+      <span>Galeria</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>date_range</mat-icon>
+      <span>Calendário</span>
+    </button>
+  </mat-menu>
 </div>
+
 <div class = "title">
   <h1>Doutora</h1>
   <h1>Gelinho</h1>
