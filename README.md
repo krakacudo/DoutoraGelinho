@@ -1,2 +1,2 @@
-# EuropeSaviorsClub
-Web page for esports team management.
+# DoutoraGelinho
+Static web page for my favorite beautician.
