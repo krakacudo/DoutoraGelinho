@@ -12,7 +12,7 @@ export class ClientComponent {
   constructor(private playerService: PlayerService){}
 
   ngOnInit(){
-    this.playerService.getPlayers().subscribe(players => this.players = players);
+    //this.playerService.getPlayers().subscribe(players => this.players = players);
   }
 }
 
