@@ -30,24 +30,24 @@ jobs:
         run: npm run prod
         working-directory: ./app
 
-      - name: Set up JDK
-        uses: actions/setup-java@v2
-        with:
-          java-version: '21'
-          distribution: 'temurin'
+      #- name: Set up JDK
+      #  uses: actions/setup-java@v2
+      #  with:
+      #    java-version: '21'
+      #    distribution: 'temurin'
 
-      - name: Setup Gradle
-        uses: gradle/gradle-build-action@v3
+      #- name: Setup Gradle
+      #  uses: gradle/gradle-build-action@v3
     
-      - name: Elevate Gradle Permissions
-        run: sudo chmod +x gradlew
-        working-directory: ./appserver
+      #- name: Elevate Gradle Permissions
+      #  run: sudo chmod +x gradlew
+      #  working-directory: ./appserver
 
-      - name: Build Backend
-        run: ./gradlew build
-        working-directory: ./appserver
-        env:
-          SPRING_PROFILES_ACTIVE: ${{ secrets.ENV }}
+      #- name: Build Backend
+      #  run: ./gradlew build
+      #  working-directory: ./appserver
+      #  env:
+      #    SPRING_PROFILES_ACTIVE: ${{ secrets.ENV }}
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -84,15 +84,15 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           script: |
-            export SPRING_PROFILES_ACTIVE=prod
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
             cd ~/Europe-Saviors
             git pull origin main
             pm2 restart myApp
-            pm2 restart spring-boot-app
             pm2 save --force
-      
+        #pm2 restart spring-boot-app
+        #export SPRING_PROFILES_ACTIVE=prod
+        
       - name: Revoke Runner IP Address
         run: |
           aws ec2 revoke-security-group-ingress \
