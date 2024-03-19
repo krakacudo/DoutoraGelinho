@@ -26,7 +26,8 @@ app-root{
     color:rgb(245, 30, 15);
     width: 100%;
     text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    gap:24px;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .title > h1{
@@ -38,7 +39,7 @@ app-root{
 @media screen and (max-width: 850px) {
     .title {
         flex-direction: column;
-        gap:50px;
+        gap:46px;
     }
 
     .title > h1{
