@@ -19,11 +19,21 @@ app-root{
 }
 
 .title{
-    margin-top:5%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:14%;
     color:rgb(245, 30, 15);
     width: 100%;
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 850px) {
+    .title {
+        flex-direction: column;
+        gap:50px;
+    }
 }
 
 .title > h1{

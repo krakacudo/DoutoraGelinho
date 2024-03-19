@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npm run serve && npm start",
     "build": "ng build --configuration development --project client",
-    "serve": "start nodemon --watch client --watch assets --ext ts,html --exec \"npm run build\"",
+    "serve": "start nodemon --watch client --watch assets --ext ts,html,css --exec \"npm run build\"",
     "start": "start nodemon index.js",
     "prod": "ng build --configuration production --project client "
   },
